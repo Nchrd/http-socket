@@ -7,5 +7,13 @@
 <body>
     <h1>Titre principal</h1>
     <p>Contenu de la page</p>
+    <button id="aboutButton">Click me</button>
 </body>
+
+<script type="text/javascript">
+    document.getElementById("aboutButton").onclick = function () {
+        location.href = "http://localhost:4221/about";
+    };
+</script>
+
 </html>
