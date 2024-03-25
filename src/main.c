@@ -12,10 +12,12 @@
 #include "Routes.h"
 #include "Response.h"
 
+#define PORT 4221
+
 int main() {
 	// initiate HTTP_Server
 	HTTP_Server http_server;
-	init_server(&http_server, 4221);
+	init_server(&http_server, PORT);
 
 	int client_socket;
 	
@@ -33,6 +35,11 @@ int main() {
 		char client_msg[4096] = "";
 
 		client_socket = accept(http_server.socket, NULL, NULL);
+
+		if(client_socket == -1) {
+			printf("Error in accepting connection: %s\n", strerror(errno));
+			exit(1);
+		}
 
 		read(client_socket, client_msg, 4095);
 		printf("%s\n", client_msg);
