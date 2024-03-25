@@ -15,7 +15,7 @@ COPY /include/ /socket/include/
 COPY /src/ /socket/src/
 COPY Makefile /socket/Makefile
 
-EXPOSE 4221
+EXPOSE 80
 
 # Compilation du code source
 RUN make
