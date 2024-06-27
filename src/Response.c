@@ -7,11 +7,11 @@ char * render_static_file(char * fileName) {
 	FILE* file = fopen(fileName, "r");
 
 	if (file == NULL) {
+		printf("%s does not exist \n", fileName);
 		return NULL;
 	}else {
 		printf("%s does exist \n", fileName);
 	}
-
 	fseek(file, 0, SEEK_END);
 	long fsize = ftell(file);
 	fseek(file, 0, SEEK_SET);

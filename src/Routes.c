@@ -15,10 +15,9 @@ struct Route * initRoute(char* key, char* value) {
 
 void inorder(struct Route* root)
 {
-
     if (root != NULL) {
+		printf("%s -> %s \n", root->key, root->value);
         inorder(root->left);
-        printf("%s -> %s \n", root->key, root->value);
         inorder(root->right);
     }
 }
@@ -36,6 +35,8 @@ struct Route * addRoute(struct Route * root, char* key, char* value) {
 	}else {
 		root->left = addRoute(root->left, key, value);
 	}
+
+	return root;
 }
 
 struct Route * search(struct Route * root, char* key) {
